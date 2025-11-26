@@ -1,0 +1,23 @@
+/* Import custom component styles (반드시 맨 위) */
+@import './styles/components.css';
+
+/* Tailwind base 설정 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Reset / Base Custom */
+html, body {
+  @apply bg-white text-black font-sans;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input, button {
+  @apply focus:outline-none;
+}

@@ -1,0 +1,12 @@
+.button-primary {
+    @apply bg-black text-white px-6 py-2 text-sm hover:bg-gray-800;
+  }
+  
+  .input-primary {
+    @apply border border-black px-4 py-2 text-sm focus:outline-none;
+  }
+  
+  .search-container {
+    @apply flex w-[600px] max-w-full px-4;
+  }
+  
