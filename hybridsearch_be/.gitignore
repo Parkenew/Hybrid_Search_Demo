@@ -1,4 +1,4 @@
-application*.yml
+src/main/resources/application.yml
 
 HELP.md
 .gradle
@@ -10,7 +10,7 @@ src/main/java/com/demo/hybridsearch/embed/
 src/main/java/com/demo/hybridsearch/search/
 #es ssl
 src/main/resources/certs/http_ca.crt
-!gradle/wrapper/gradle-wrapper.jar
+!hybridsearch_be/gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 
@@ -27,7 +27,7 @@ bin/
 !**/src/test/**/bin/
 
 ### IntelliJ IDEA ###
-.idea
+hybridsearch_be/.idea
 *.iws
 *.iml
 *.ipr
