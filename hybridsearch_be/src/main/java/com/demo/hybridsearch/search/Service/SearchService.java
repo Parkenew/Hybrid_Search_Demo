@@ -26,16 +26,16 @@ public class SearchService {
     public static String index="naver_news_total";
 
     // 전체 검색
-    public ResponseEntity<?> allSearch(UserQueryDto userQueryDto) {
-        if (userQueryDto.getQuery().isEmpty()) {
+    public ResponseEntity<?> allSearch(SearchDto searchDto) {
+        if (searchDto.getQuery().isEmpty()) {
             return ResponseEntity.badRequest().body("검색어를 입력해주세요.");
         } else {
             // 임베딩 서비스 호출
-            SearchDto embedded = embeddingService.getEmbeddingRequest(userQueryDto);
+            //SearchDto embedded = embeddingService.getEmbeddingRequest(userQueryDto);
 
             // 키워드, 벡터검색 수행
-            SearchResultDto keyword = keywordSearch(userQueryDto.getQuery());
-            SearchResultDto vector = vectorSearch(embedded.getVector());
+            SearchResultDto keyword = keywordSearch(searchDto.getQuery());
+            SearchResultDto vector = vectorSearch(searchDto.getVector());
             // SearchResultDto hybrid = hybridSearch(embedded.getQuery(), embedded.getVector());
 
             // 결과 조합

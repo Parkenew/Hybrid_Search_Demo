@@ -1,6 +1,7 @@
 package com.demo.hybridsearch.search.Controller;
 
 
+import com.demo.hybridsearch.search.DTO.SearchDto;
 import com.demo.hybridsearch.search.DTO.UserQueryDto;
 import com.demo.hybridsearch.search.Service.SearchService;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +16,8 @@ public class SearchController {
     private final SearchService searchService;
 
     @PostMapping ("/api/search")
-    public ResponseEntity<?> getQuery(@RequestBody UserQueryDto userQueryDto) {
-        return searchService.allSearch(userQueryDto);
+    public ResponseEntity<?> getQuery(@RequestBody SearchDto searchDto) {
+        return searchService.allSearch(searchDto);
     }
 
 }
