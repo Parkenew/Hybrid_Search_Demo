@@ -1,4 +1,4 @@
-package com.demo.hybridsearch.search.Service;
+package com.demo.hybridsearch.embed.Service;
 
 import com.demo.hybridsearch.embed.DTO.EmbeddingResultDto;
 import com.demo.hybridsearch.search.DTO.SearchDto;
@@ -22,8 +22,8 @@ public class EmbeddingService {
     private final RestTemplate restTemplate;
 
     // application.yml 에서 관리
-    @Value("${embedding.api.url}")
-    private String embeddingApiUrl;
+    @Value("${embedding.host}")
+    private String embeddingHost;
 
     // 사용자 검색 요청시 임베딩 서버에 임베딩 요청하는 서비스
     public SearchDto getEmbeddingRequest(UserQueryDto userQueryDto) {
@@ -38,7 +38,7 @@ public class EmbeddingService {
         HttpEntity<Map<String,Object>> entity = new HttpEntity<>(body, headers);
         ResponseEntity<EmbeddingResultDto> response =
                 restTemplate.postForEntity(
-                        embeddingApiUrl,
+                        embeddingHost,
                         entity,
                         EmbeddingResultDto.class
                 );
