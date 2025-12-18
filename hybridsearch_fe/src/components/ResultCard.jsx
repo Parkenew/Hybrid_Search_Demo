@@ -9,25 +9,22 @@ export default function ResultCard({ title, description, link, highlight }) {
       target="_blank"
       rel="noopener noreferrer"
       className="
-        p-5 
+        p-5  
         flex flex-col 
-        h-[130px] 
+        h-[116px] 
         cursor-pointer
         rounded-xl
-        hover:bg-gray-50 
-        dark:hover:bg-gray-700
         transition
-    
+        mb-3 mt-3
       "
     >
       {/* 제목 */}
-      <div className="mb-3">
+      <div className="mb-1">
         <span
           className="font-extrabold text-blue-600 dark:text-blue-300 underline-offset-2 hover:underline"
           dangerouslySetInnerHTML={{ __html: highlightedTitle }}
         />
       </div>
-
       {/* 본문 — 클릭해도 링크지만 hover 스타일 없음 */}
       <div className="flex-1">
         <p
