@@ -4,28 +4,30 @@ import LogoSection from "../components/LogoSection";
 import FooterSection from "../components/FooterSection";
 import ThemeToggle from "../components/ThemeToggle";
 import SampleKeyword from "../components/SampleKeyword";
+import NaviBar from "../components/NaviBar";
 
 export default function HomePage() {
   
   return (
     <div className="min-h-screen bg-white flex flex-col dark:bg-gray-800 dark:text-white transition-colors">
-      {/* 🔥 가운데 카드 섹션 (항상 세로 중앙 유지) */}
-      <div className="absolute top-4 right-4">
+      {/* <div className="absolute top-2 right-6">
         <ThemeToggle />
-      </div>
-      <div className="flex-1 flex flex-col justify-center items-center">
-        <div className="w-full max-w-[750px] flex flex-col">
+      </div> */}
+      <NaviBar hideLogo/>
+      <div className="flex-1 flex justify-center items-center overflow-y-auto">
+        <div className="w-full max-w-[750px] flex flex-col mb-32">
           <LogoSection />
-          <div className="mt-6 pb-2">
+          <div className="pt-4 pb-4">
           <SearchBar/>
           </div>
           <SampleKeyword />
-          <ExplainSection />
+          {/* <ExplainSection /> */}
         </div>
       </div>
-
-      {/* 🔥 푸터 섹션 (항상 맨 아래, 중앙 섹션 깨지지 않음) */}
-      <FooterSection />
+   
+      <footer className="shrink-0">
+        <FooterSection />
+      </footer>
     </div>
   );
 }
