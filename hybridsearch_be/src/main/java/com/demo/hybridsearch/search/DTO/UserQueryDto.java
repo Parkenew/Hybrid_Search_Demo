@@ -1,4 +1,4 @@
-package com.demo.hybridsearch.search.DTO;
+package com.demo.hybridsearch.search.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

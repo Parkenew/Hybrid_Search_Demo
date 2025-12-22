@@ -1,9 +1,8 @@
-package com.demo.hybridsearch.search.Controller;
+package com.demo.hybridsearch.search.controller;
 
 
-import com.demo.hybridsearch.search.DTO.SearchDto;
-import com.demo.hybridsearch.search.DTO.UserQueryDto;
-import com.demo.hybridsearch.search.Service.SearchService;
+import com.demo.hybridsearch.search.dto.UserQueryDto;
+import com.demo.hybridsearch.search.service.SearchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,8 +15,12 @@ public class SearchController {
     private final SearchService searchService;
 
     @PostMapping ("/api/search")
-    public ResponseEntity<?> getQuery(@RequestBody SearchDto searchDto) {
-        return searchService.allSearch(searchDto);
+    public ResponseEntity<?> getQuery(@RequestBody UserQueryDto dto) {
+        if (dto.getQuery().isEmpty()) {
+            return ResponseEntity.badRequest().body("검색어를 입력해주세요.");
+        } else {
+            return ResponseEntity.ok(searchService.allSearch(dto));
+        }
     }
 
 }

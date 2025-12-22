@@ -1,15 +1,15 @@
-package com.demo.hybridsearch.search.Service;
+package com.demo.hybridsearch.search.service;
 
 import co.elastic.clients.elasticsearch.core.SearchTemplateResponse;
 import co.elastic.clients.elasticsearch.core.search.Hit;
 import co.elastic.clients.json.JsonData;
 import com.demo.hybridsearch.elasticsearch.service.ElasticsearchService;
-import com.demo.hybridsearch.search.DTO.*;
+import com.demo.hybridsearch.embed.service.EmbeddingService;
+import com.demo.hybridsearch.search.dto.*;
 
 import lombok.RequiredArgsConstructor;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -26,26 +26,24 @@ public class SearchService {
     public static String index="naver_news_total";
 
     // 전체 검색
-    public ResponseEntity<?> allSearch(SearchDto searchDto) {
-        if (searchDto.getQuery().isEmpty()) {
-            return ResponseEntity.badRequest().body("검색어를 입력해주세요.");
-        } else {
-            // 임베딩 서비스 호출
-            //SearchDto embedded = embeddingService.getEmbeddingRequest(userQueryDto);
+    public List<SearchResultDto> allSearch(UserQueryDto userQueryDto) {
+        // 임베딩 서비스 호출
+        SearchDto embedded = embeddingService.getEmbeddingRequest(userQueryDto);
 
-            // 키워드, 벡터검색 수행
-            SearchResultDto keyword = keywordSearch(searchDto.getQuery());
-            SearchResultDto vector = vectorSearch(searchDto.getVector());
+        // 키워드, 벡터검색 수행
+        SearchResultDto keyword = keywordSearch(embedded.getQuery());
+        SearchResultDto vector = vectorSearch(embedded.getVector());
+            //SearchResultDto keyword = keywordSearch(searchDto.getQuery());
+            //SearchResultDto vector = vectorSearch(searchDto.getVector());
             // SearchResultDto hybrid = hybridSearch(embedded.getQuery(), embedded.getVector());
 
-            // 결과 조합
-            List<SearchResultDto> list= new ArrayList<>();
-            list.add(keyword);
-            list.add(vector);
+        // 결과 조합
+        List<SearchResultDto> list= new ArrayList<>();
+        list.add(keyword);
+        list.add(vector);
             // list.add(hybrid);
 
-            return ResponseEntity.ok(list);
-        }
+        return list;
     }
 
     //키워드 검색
@@ -88,5 +86,4 @@ public class SearchService {
         }
         return finalResults;
     }
-
 }
