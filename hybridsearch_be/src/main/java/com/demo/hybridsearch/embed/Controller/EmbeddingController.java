@@ -1,8 +1,8 @@
-package com.demo.hybridsearch.embed.controller;
+package com.demo.hybridsearch.embed.Controller;
 
-import com.demo.hybridsearch.search.dto.SearchDto;
-import com.demo.hybridsearch.search.dto.UserQueryDto;
-import com.demo.hybridsearch.embed.service.EmbeddingService;
+import com.demo.hybridsearch.search.DTO.SearchDto;
+import com.demo.hybridsearch.search.DTO.UserQueryDto;
+import com.demo.hybridsearch.embed.Service.EmbeddingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

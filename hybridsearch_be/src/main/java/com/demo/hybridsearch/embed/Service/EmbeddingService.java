@@ -1,8 +1,8 @@
-package com.demo.hybridsearch.embed.service;
+package com.demo.hybridsearch.embed.Service;
 
-import com.demo.hybridsearch.embed.dto.EmbeddingResultDto;
-import com.demo.hybridsearch.search.dto.SearchDto;
-import com.demo.hybridsearch.search.dto.UserQueryDto;
+import com.demo.hybridsearch.embed.DTO.EmbeddingResultDto;
+import com.demo.hybridsearch.search.DTO.SearchDto;
+import com.demo.hybridsearch.search.DTO.UserQueryDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
