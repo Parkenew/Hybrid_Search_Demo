@@ -1,11 +1,11 @@
-package com.demo.hybridsearch.search.service;
+package com.demo.hybridsearch.search.Service;
 
 import co.elastic.clients.elasticsearch.core.SearchTemplateResponse;
 import co.elastic.clients.elasticsearch.core.search.Hit;
 import co.elastic.clients.json.JsonData;
 import com.demo.hybridsearch.elasticsearch.service.ElasticsearchService;
-import com.demo.hybridsearch.embed.service.EmbeddingService;
-import com.demo.hybridsearch.search.dto.*;
+import com.demo.hybridsearch.embed.Service.EmbeddingService;
+import com.demo.hybridsearch.search.DTO.*;
 
 import lombok.RequiredArgsConstructor;
 

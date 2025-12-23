@@ -1,5 +1,6 @@
-package com.demo.hybridsearch.search.dto;
+package com.demo.hybridsearch.search.DTO;
 
+import co.elastic.clients.elasticsearch.core.search.Hit;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
